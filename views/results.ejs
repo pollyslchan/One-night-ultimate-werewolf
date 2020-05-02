@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Werewolves</title>
+	</head>
+	<body>
+		
+		<h1>
+			Results
+		</h1>
+		
+		<% if(villagerWin == true){ %>
+			<div>
+				Congratulations Village team!
+			</div>			
+		<% } else{ %>
+			<div>
+				Congratulations Wolf team!
+			</div>	
+		<% } %>
+		
+		<div>
+			<% players.forEach(function(player){ %>
+			<div>
+				<div>
+					Player :   <%= player.name %>   <%= player.role2 %>   <%= player.votes %>
+				</div>
+			</div>		
+			<% }); %>
+		</div>
+		<div>
+			<a href="/players">Play again</a>
+		</div>
+		<div>
+			<a href="/">Finish</a>
+		</div>
+		
+	</body>
+</html>

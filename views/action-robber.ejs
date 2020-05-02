@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Werewolves</title>
+	</head>
+	<body>
+		
+		<h1>
+			Your action tonight - Robber
+		</h1>
+		
+		<div>
+			<% players.forEach(function(player){ %>
+			<div>
+				<div>
+					Player :	<%= player.name %>  
+				</div>
+				<form action="/rolecheck/<%= player._id %>?_method=PUT" method="POST">
+					<button>
+						Rob role
+					</button>
+				</form>
+			</div>		
+			<% }); %>
+		</div>
+		
+		<div>
+			You can only choose one player to rob. After that, go back to sleep
+		</div>
+		<div>
+			<a href="/night1">Go back to sleep</a>
+		</div>
+		
+	</body>
+</html>

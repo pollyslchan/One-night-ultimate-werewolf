@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Werewolves</title>
+	</head>
+	<body>
+		
+		<h1>
+			Day 2
+		</h1>
+		
+		<div>
+			<% players.forEach(function(player){ %>
+			<div>
+				<div>
+					Player :	<%= player.name %>  
+				</div>
+				<form action="/vote/<%= player._id %>?_method=PUT" method="POST">
+					<button>
+						Vote him out
+					</button>
+				</form>
+			</div>		
+			<% }); %>
+		</div>
+		
+		<div>
+			Please vote only one time. When everyone has voted, see results
+		</div>
+		<div>
+			<a href="/results">See results</a>
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Werewolves</title>
+	</head>
+	<body>
+		
+		<h1>
+			Your action tonight - Seer
+		</h1>
+		
+		<div>
+			<% players.forEach(function(player){ %>
+			<div>
+				<div>
+					Player :	<%= player.name %>  
+				</div>
+				<span>
+					<a href="/rolecheck/<%= player._id %>">See role</a>
+				</span>
+			</div>		
+			<% }); %>
+		</div>
+		
+		<div>
+			You can only choose one player to see. After that, go back to sleep
+		</div>
+		<div>
+			<a href="/night1">Go back to sleep</a>
+		</div>
+		
+	</body>
+</html>

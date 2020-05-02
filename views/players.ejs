@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Werewolves</title>
+	</head>
+	<body>
+		
+		<h1>
+			Players
+		</h1>
+		
+		<div>
+			<% players.forEach(function(player){ %>
+			<div>
+				<div>
+					Player :	<%= player.name %>	
+				</div>
+			</div>
+			
+			<% }); %>
+		</div>
+		
+		<div>
+			Initialise game only when you have 4 players. This will reset previous game data.
+		</div>	
+		<div>
+			<form action="/initialise/?_method=PUT" method="POST">
+				<button>
+					Initialise
+				</button>
+			</form>
+		</div>
+		
+		<div>
+			Start and go to day 1
+		</div>
+		<div>
+			<a href="/day1">Go to day 1</a>
+		</div>
+		
+		<div>
+			Add new player
+		</div>
+		<div>
+			<a href="/">Home</a>
+		</div>		
+		
+		<div>
+			Click this only when you want to reset all players
+		</div>
+		<div>
+			<form action="/players/?_method=DELETE" method="POST">
+				<button>
+					Reset all players
+				</button>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Werewolves</title>
+	</head>
+	<body>
+		
+		<h1>
+			Your action tonight - Wolf team
+		</h1>
+		
+		<div>
+			<% players.forEach(function(player){ %>
+			<div>
+				Player :	<%= player.name %>   
+				<% if(player.role1 == "werewolf"){ %>
+				<span>
+					<%= player.role1%>
+				</span>
+				<% } %>
+			</div>		
+			<% }); %>
+		</div>
+		
+		<div>
+			You will see who are wolves. But you will not see who is minion.
+		</div>
+		<div>
+			<a href="/night1">Go back to sleep</a>
+		</div>
+		
+	</body>
+</html>

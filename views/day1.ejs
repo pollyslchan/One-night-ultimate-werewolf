@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Werewolves</title>
+	</head>
+	<body>
+		
+		<h1>
+			Day 1
+		</h1>
+		
+		<div>
+			<% players.forEach(function(player){ %>
+			<div>
+				<div>
+					Player :	<%= player.name %>  
+				</div>
+				<span>
+					<a href="/role/<%= player._id %>">See your role</a>
+				</span>
+			</div>		
+			<% }); %>
+		</div>
+		
+		<div>
+			When everyone has checked their role, go into night
+		</div>
+		<div>
+			<a href="/night1">Go to night</a>
+		</div>
+		
+	</body>
+</html>
