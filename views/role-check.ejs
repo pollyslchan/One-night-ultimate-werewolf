@@ -1,12 +1,11 @@
 <%- include("./partials/header") %>
 		
-		<h1>
-			Check this player's role
-		</h1>
-			<div>
-				This player was a <%= player.role1 %>
-			</div>
+	<div class="jumbotron">
+	  <h1 class="display-4">Check this player's role</h1>
+	  <p class="lead">This player was a <%= player.role1 %></p>
+	  <hr class="my-4">
+	  <a class="btn btn-outline-secondary" href="/night1" role="button">Go back to sleep</a>
+	</div>
 
-		<a href="/night1">Go back to sleep</a>
 		
 <%- include("./partials/footer") %>

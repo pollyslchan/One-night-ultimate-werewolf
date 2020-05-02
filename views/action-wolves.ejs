@@ -1,27 +1,30 @@
 <%- include("./partials/header") %>
 		
-		<h1>
-			Your action tonight - Wolf team
-		</h1>
-		
-		<div>
-			<% players.forEach(function(player){ %>
-			<div>
-				Player :	<%= player.name %>   
-				<% if(player.role1 == "werewolf"){ %>
-				<span>
-					<%= player.role1%>
-				</span>
-				<% } %>
-			</div>		
-			<% }); %>
+<div class="jumbotron">
+  <h1 class="display-4">Your action tonight - Werewolves and minion</h1>
+  <p class="lead">You will see all the werewolves among the players so you know who your teammates are. Note that minion is also on your team but you will not see who he/she is.</p>
+  <hr class="my-4">
+  <a class="btn btn-outline-secondary" href="/night1" role="button">Go back to sleep</a>
+</div>
+
+<div class="container">
+  <div class="row">
+  <% players.forEach(function(player){ %>
+	  <div class="col-sm-6 col-lg-3">	
+		<div class="card">
+		  <div class="card-body">
+			<h5 class="card-title"><%= player.name %> </h5>
+			<% if(player.role1 == "werewolf"){ %>
+			  <p><%= player.role1 %></p>
+			<%  } else{ %>
+			  <p>not werewolf</p>
+			<%  } %>	
+			  
+		  </div>
 		</div>
-		
-		<div>
-			You will see who are wolves. But you will not see who is minion.
-		</div>
-		<div>
-			<a href="/night1">Go back to sleep</a>
-		</div>
-		
+	</div>
+  <% }); %>
+  </div>
+</div>
+
 <%- include("./partials/footer") %>

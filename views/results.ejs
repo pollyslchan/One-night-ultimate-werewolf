@@ -1,33 +1,32 @@
 <%- include("./partials/header") %>
 		
-		<h1>
-			Results
-		</h1>
-		
-		<% if(villagerWin == true){ %>
-			<div>
-				Congratulations Village team!
-			</div>			
-		<% } else{ %>
-			<div>
-				Congratulations Wolf team!
-			</div>	
-		<% } %>
-		
-		<div>
-			<% players.forEach(function(player){ %>
-			<div>
-				<div>
-					Player :   <%= player.name %>   <%= player.role2 %>   <%= player.votes %>
-				</div>
-			</div>		
-			<% }); %>
+	<div class="jumbotron">
+	  <% if(villagerWin == true){ %>
+		<h1 class="display-4">Congratulations Village team!</h1>
+		<p class="lead">Great job village team! You have successfully voted out a werewolf.</p>
+	  <% } else{ %>
+		<h1 class="display-4">Congratulations Wolf team!</h1>
+		<p class="lead">Sorry village team! The werewolves have escaped.</p>
+	  <% } %>
+	  <hr class="my-4">
+	  <a class="btn btn-primary btn-lg" href="/players" role="button">Play again</a>
+	</div>
+
+	<div class="container">
+	  <div class="row">
+	  <% players.forEach(function(player){ %>
+		  <div class="col-sm-6 col-lg-3">	
+			<div class="card">
+			  <div class="card-body">
+				<h5 class="card-title"><%= player.name %> </h5>
+				<p class="card-text">Role: <%= player.role2 %></p>
+				<p class="card-text">Votes received: <%= player.votes %></p>
+			  </div>
+			</div>
 		</div>
-		<div>
-			<a href="/players">Play again</a>
-		</div>
-		<div>
-			<a href="/">Finish</a>
-		</div>
-		
+	  <% }); %>
+	  </div>
+	</div>
+
+
 <%- include("./partials/footer") %>

@@ -1,27 +1,29 @@
 <%- include("./partials/header") %>
-		
-		<h1>
-			Day 1
-		</h1>
-		
-		<div>
-			<% players.forEach(function(player){ %>
-			<div>
-				<div>
-					Player :	<%= player.name %>  
-				</div>
-				<span>
-					<a href="/role/<%= player._id %>">See your role</a>
-				</span>
-			</div>		
-			<% }); %>
+
+	<div class="jumbotron">
+	  <h1 class="display-4">Day 1</h1>
+	  <p class="lead">You can see your role now. For you and your friends to have fun, please play by the rules and check only your own role.</p>
+	  <hr class="my-4">
+	  <p>In this game, we have 2 werewolves, 1 minion, 1 seer, 1 robber and 2 villagers. Werewolves and minion are on the wolf team. Seer, robber and villagers are on the villager team. Villager team wins when they successfully vote out at least 1 werewolf in the end. </p>
+	  <p>Go into night when everyone has finished checking their roles. </p>
+	  <a class="btn btn-primary btn-lg" href="/night1" role="button">Go to night</a>
+	</div>
+
+<div class="container">
+  <div class="row">
+  <% players.forEach(function(player){ %>
+	  <div class="col-sm-6 col-lg-3">	
+		<div class="card">
+		  <div class="card-body">
+			<h5 class="card-title"><%= player.name %> </h5>
+			<a href="/role/<%= player._id %>" class="btn btn-outline-primary">See your role</a>
+		  </div>
 		</div>
-		
-		<div>
-			When everyone has checked their role, go into night
-		</div>
-		<div>
-			<a href="/night1">Go to night</a>
-		</div>
+	</div>
+  <% }); %>
+  </div>
+</div>
+
+
 		
 <%- include("./partials/footer") %>

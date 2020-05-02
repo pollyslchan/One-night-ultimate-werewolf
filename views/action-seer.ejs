@@ -1,27 +1,27 @@
 <%- include("./partials/header") %>
 		
-		<h1>
-			Your action tonight - Seer
-		</h1>
+	<div class="jumbotron">
+	  <h1 class="display-4">Your action tonight - Seer</h1>
+	  <p class="lead">Choose one player to see. Note that this is the role of the player when he/she goes into night. They may or may not have the same role in the morning.</p>
+	  <hr class="my-4">
+	  <p>See only one player. After that, go back to sleep.</p>
+	  <a class="btn btn-outline-secondary" href="/night1" role="button">Go back to sleep</a>
+	</div>
+
+	<div class="container">
+	  <div class="row">
+	  <% players.forEach(function(player){ %>
+		  <div class="col-sm-6 col-lg-3">	
+			<div class="card">
+			  <div class="card-body">
+				<h5 class="card-title"><%= player.name %> </h5>
+				<a href="/rolecheck/<%= player._id %>" class="btn btn-outline-primary">See role</a>
+			  </div>
+			</div>
+		</div>
+	  <% }); %>
+	  </div>
+	</div>
 		
-		<div>
-			<% players.forEach(function(player){ %>
-			<div>
-				<div>
-					Player :	<%= player.name %>  
-				</div>
-				<span>
-					<a href="/rolecheck/<%= player._id %>">See role</a>
-				</span>
-			</div>		
-			<% }); %>
-		</div>
-		
-		<div>
-			You can only choose one player to see. After that, go back to sleep
-		</div>
-		<div>
-			<a href="/night1">Go back to sleep</a>
-		</div>
 		
 <%- include("./partials/footer") %>

@@ -1,15 +1,11 @@
 <%- include("./partials/header") %>
 		
-		<h1>
-			Completed voting
-		</h1>
+	<div class="jumbotron">
+	  <h1 class="display-4">Completed voting</h1>
+	  <p class="lead">You have voted for <%= player.name %></p>
+	  <hr class="my-4">
+	  <a class="btn btn-outline-secondary" href="/day2" role="button">Go back to day 2</a>
+	</div>
 		
-		<div>
-			You have voted for <%= player.name %>
-		</div>
 
-		<div>
-			<a href="/day2">Go back to day 2</a>
-		</div>
-		
 <%- include("./partials/footer") %>

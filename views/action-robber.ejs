@@ -1,29 +1,29 @@
 <%- include("./partials/header") %>
 		
-		<h1>
-			Your action tonight - Robber
-		</h1>
-		
-		<div>
-			<% players.forEach(function(player){ %>
-			<div>
-				<div>
-					Player :	<%= player.name %>  
-				</div>
+	<div class="jumbotron">
+	  <h1 class="display-4">Your action tonight - Robber</h1>
+	  <p class="lead">Choose one player to rob. After you have robbed the player, you will see his/her role and you will take on that role in the morning. Depending on the role, you may be on villager team or wolf team.</p>
+	  <hr class="my-4">
+	  <p>Rob only once. After that, go back to sleep.</p>
+	  <a class="btn btn-outline-secondary" href="/night1" role="button">Go back to sleep</a>
+	</div>
+
+	<div class="container">
+	  <div class="row">
+	  <% players.forEach(function(player){ %>
+		  <div class="col-sm-6 col-lg-3">	
+			<div class="card">
+			  <div class="card-body">
+				<h5 class="card-title"><%= player.name %> </h5>
 				<form action="/rolecheck/<%= player._id %>?_method=PUT" method="POST">
-					<button>
-						Rob role
-					</button>
+					<button class="btn btn-outline-primary">Rob role</button>
 				</form>
-			</div>		
-			<% }); %>
+			  </div>
+			</div>
 		</div>
-		
-		<div>
-			You can only choose one player to rob. After that, go back to sleep
-		</div>
-		<div>
-			<a href="/night1">Go back to sleep</a>
-		</div>
+	  <% }); %>
+	  </div>
+	</div>
+
 		
 <%- include("./partials/footer") %>

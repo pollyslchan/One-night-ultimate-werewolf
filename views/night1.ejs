@@ -1,27 +1,31 @@
 <%- include("./partials/header") %>
 		
-		<h1>
-			Night 1
-		</h1>
-		
-		<div>
-			<% players.forEach(function(player){ %>
-			<div>
-				<div>
-					Player :	<%= player.name %>  
-				</div>
-				<span>
-					<a href="/action/<%= player._id %>">Take action</a>
-				</span>
-			</div>		
-			<% }); %>
+	<div class="jumbotron">
+	  <h1 class="display-4">Night 1</h1>
+	  <p class="lead">Nighttime is when the action begins. Take action now if you have the role of werewolf, minion, seer or robber.</p>
+	  <hr class="my-4">
+	  <p>Action for werewolves and minion: Secretly see who the werewolves are so you can work with your wolf team on day 2.</p>
+	  <p>Action for Seer: Choose one player's role to check.</p>
+	  <p>Action for Robber: Choose one player's role to rob. When you rob someone's role, you will swap your roles on day 2. Example: If you rob a werewolf, you will be in the wolf team on day 2.</p>
+	  <p>Go to morning when everyone has finished taking action. </p>
+	  <a class="btn btn-primary btn-lg" href="/day2" role="button">Go to morning</a>
+	</div>
+
+	<div class="container">
+	  <div class="row">
+	  <% players.forEach(function(player){ %>
+		  <div class="col-sm-6 col-lg-3">	
+			<div class="card">
+			  <div class="card-body">
+				<h5 class="card-title"><%= player.name %> </h5>
+				<a href="/action/<%= player._id %>" class="btn btn-outline-primary">Take action</a>
+			  </div>
+			</div>
 		</div>
-		
-		<div>
-			When everyone has taken action, go to morning
-		</div>
-		<div>
-			<a href="/day2">Go to morning</a>
-		</div>
+	  <% }); %>
+	  </div>
+	</div>
+
+
 		
 <%- include("./partials/footer") %>

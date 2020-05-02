@@ -1,29 +1,31 @@
 <%- include("./partials/header") %>
 		
-		<h1>
-			Day 2
-		</h1>
-		
-		<div>
-			<% players.forEach(function(player){ %>
-			<div>
-				<div>
-					Player :	<%= player.name %>  
-				</div>
+	<div class="jumbotron">
+	  <h1 class="display-4">Day 2</h1>
+	  <p class="lead">Good morning! Now you may discuss among yourselves to identify the werewolf. Beware of the werewolves and minion among you who may mislead you!</p>
+	  <hr class="my-4">
+	  <p>Cast your vote after you finished discussing. Please cast only one vote.</p>
+	  <p>See results only when everyone has finished voting. </p>
+	  <a class="btn btn-primary btn-lg" href="/results" role="button">See results</a>
+	</div>
+
+	<div class="container">
+	  <div class="row">
+	  <% players.forEach(function(player){ %>
+		  <div class="col-sm-6 col-lg-3">	
+			<div class="card">
+			  <div class="card-body">
+				<h5 class="card-title"><%= player.name %> </h5>
 				<form action="/vote/<%= player._id %>?_method=PUT" method="POST">
-					<button>
-						Vote him out
-					</button>
+					<button class="btn btn-outline-danger">Vote this player out</button>
 				</form>
-			</div>		
-			<% }); %>
+			  </div>
+			</div>
 		</div>
-		
-		<div>
-			Please vote only one time. When everyone has voted, see results
-		</div>
-		<div>
-			<a href="/results">See results</a>
-		</div>
+	  <% }); %>
+	  </div>
+	</div>
+
+
 		
 <%- include("./partials/footer") %>

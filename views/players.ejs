@@ -1,54 +1,48 @@
 <%- include("./partials/header") %>
-		
-		<h1>
-			Players
-		</h1>
-		
-		<div>
-			<% players.forEach(function(player){ %>
-			<div>
-				<div>
-					Player :	<%= player.name %>	
-				</div>
-			</div>
-			
-			<% }); %>
+
+<div class="jumbotron">
+	<h1 class="display-4">Players in this game</h1>
+	<p class="lead">Wait for your friends to join the game. You will need exactly 4 players to proceed.</p>
+	<hr class="my-4">
+	<p>For the most fun, jump onto a video call with your friends so you can see each other's expression and discuss! </p>
+	<p>Start game when everyone is ready and the moderator has initialised the game. </p>
+	<a class="btn btn-primary btn-lg" href="/day1" role="button">Start game</a>
+</div>
+
+<div class="container">
+	<div class="row">
+	<% players.forEach(function(player){ %>
+	  <div class="col-sm-6 col-lg-3">	
+		<div class="card">
+		  <div class="card-body">
+			<h5 class="card-title"><%= player.name %> </h5>
+			<p class="card-text">Player in game</p>
+		  </div>
 		</div>
-		
-		<div>
-			Initialise game only when you have 4 players. This will reset previous game data.
-		</div>	
-		<div>
-			<form action="/initialise/?_method=PUT" method="POST">
-				<button>
-					Initialise
-				</button>
-			</form>
-		</div>
-		
-		<div>
-			Start and go to day 1
-		</div>
-		<div>
-			<a href="/day1">Go to day 1</a>
-		</div>
-		
-		<div>
-			Add new player
-		</div>
-		<div>
-			<a href="/">Home</a>
-		</div>		
-		
-		<div>
-			Click this only when you want to reset all players
-		</div>
-		<div>
-			<form action="/players/?_method=DELETE" method="POST">
-				<button>
-					Reset all players
-				</button>
-			</form>
-		</div>
+	</div>
+	<% }); %>
+	</div>	
+	<hr class="my-4">
+	
+	<p>Moderator will initialise and reset game when 4 players are ready</p>	
+	<div>
+	  <form action="/initialise/?_method=PUT" method="POST">
+		<button class="btn btn-lg btn-outline-primary">Initialise</button>	
+	  </form>
+	</div>
+	<hr class="my-4">
+	
+	<p>Go back to home</p>
+	<a href="/" class="btn btn-sm btn-outline-secondary">Home</a>
+	<hr class="my-4">
+	
+	<p>Reset and remove all players</p>
+	<div>
+	  <form action="/players/?_method=DELETE" method="POST">
+		<button class="btn btn-sm btn-outline-secondary">Reset all</button>	
+	  </form>
+	</div>
+	<hr class="my-4">
+</div>
 
 <%- include("./partials/footer") %>
