@@ -72,7 +72,7 @@ app.delete("/players", function(req, res){
 			console.log(err);
 			res.redirect("/players");
 		} else{
-			res.redirect("/");
+			res.redirect("/players");
 		}
 	});
 });
@@ -234,8 +234,8 @@ app.get("/results", function(req, res){
 			maxVote = Math.max.apply(Math, allPlayers.map(function(o) { return o.votes; }));
 			allPlayers.forEach(function(player){
 				if(player.role2 == "werewolf" && player.votes == maxVote){
-					villagerWin = true;
-				}
+				   villagerWin = true;
+				};
 			});
 			res.render("results", {players:allPlayers, villagerWin:villagerWin});
 		}

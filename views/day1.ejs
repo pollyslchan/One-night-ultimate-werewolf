@@ -1,13 +1,19 @@
 <%- include("./partials/header") %>
 
-	<div class="jumbotron">
-	  <h1 class="display-4">Day 1</h1>
-	  <p class="lead">You can see your role now. For you and your friends to have fun, please play by the rules and check only your own role.</p>
-	  <hr class="my-4">
-	  <p>In this game, we have 2 werewolves, 1 minion, 1 seer, 1 robber and 2 villagers. Werewolves and minion are on the wolf team. Seer, robber and villagers are on the villager team. Villager team wins when they successfully vote out at least 1 werewolf in the end. </p>
-	  <p>Go into night when everyone has finished checking their roles. </p>
-	  <a class="btn btn-primary btn-lg" href="/night1" role="button">Go to night</a>
+<% if(players.length != 4){ %>
+	<div class="alert alert-danger">
+		<a class="btn btn-danger" href="/players">Go back to reset players</a> You do not have exactly 4 players.
 	</div>
+<% } %>
+
+<div class="jumbotron">
+  <h1 class="display-4">Day 1</h1>
+  <p class="lead">You can see your role now. For you and your friends to have fun, please play by the rules and check only your own role.</p>
+  <hr class="my-4">
+  <p>In this game, we have 2 werewolves, 1 minion, 1 seer, 1 robber and 2 villagers. Werewolves and minion are on the wolf team. Seer, robber and villagers are on the villager team. Villager team wins when they successfully vote out at least 1 werewolf in the end. </p>
+  <p>Go into night when everyone has finished checking their roles. </p>
+  <a class="btn btn-primary btn-lg" href="/night1">Go to night</a>
+</div>
 
 <div class="container">
   <div class="row">

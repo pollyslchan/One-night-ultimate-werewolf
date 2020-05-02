@@ -6,7 +6,7 @@
 	<hr class="my-4">
 	<p>For the most fun, jump onto a video call with your friends so you can see each other's expression and discuss! </p>
 	<p>Start game when everyone is ready and the moderator has initialised the game. </p>
-	<a class="btn btn-primary btn-lg" href="/day1" role="button">Start game</a>
+	<a class="btn btn-primary btn-lg" href="/day1">Start game</a>
 </div>
 
 <div class="container">
@@ -23,26 +23,35 @@
 	<% }); %>
 	</div>	
 	<hr class="my-4">
+
 	
-	<p>Moderator will initialise and reset game when 4 players are ready</p>	
-	<div>
-	  <form action="/initialise/?_method=PUT" method="POST">
-		<button class="btn btn-lg btn-outline-primary">Initialise</button>	
-	  </form>
-	</div>
+	<form action="/players" method="POST">
+		<div class="form-group">
+		  <label>New player: enter your name</label>
+		  <input name="name" type="text" placeholder="name" class="form-control">
+		</div>
+		<button class="btn btn-outline-primary">Submit</button>
+	</form>
 	<hr class="my-4">
-	
-	<p>Go back to home</p>
-	<a href="/" class="btn btn-sm btn-outline-secondary">Home</a>
-	<hr class="my-4">
-	
-	<p>Reset and remove all players</p>
+
+	<p>Reset and remove all players in game</p>
 	<div>
 	  <form action="/players/?_method=DELETE" method="POST">
-		<button class="btn btn-sm btn-outline-secondary">Reset all</button>	
+		<button class="btn btn-outline-danger">Remove all</button>	
 	  </form>
 	</div>
 	<hr class="my-4">
+	
+	<p>Initialise and reset game when 4 players are ready</p>	
+	<div>
+	  <form action="/initialise/?_method=PUT" method="POST">
+		<button class="btn btn-outline-success">Initialise</button>	
+	  </form>
+	</div>
+	<hr class="my-4">
+	
+	
 </div>
+
 
 <%- include("./partials/footer") %>
