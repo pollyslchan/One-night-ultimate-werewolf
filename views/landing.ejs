@@ -1,24 +1,18 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<%- include("./partials/header") %>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>One Night Ultimate werewolf</title>
-  </head>
-	
-<body style="background-image: url('https://images.unsplash.com/photo-1536746803623-cef87080bfc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2432&q=80'); background-size: cover; background-position: center;">
-
-	<div class="jumbotron bg-transparent">	
-		  <h1 class="display-4 text-white">One night ultimate werewolf</h1>
-		  <p class="lead text-white">This is a simple game designed for 4 players. You will be randomly assigned the role of a villager, a werewolf or a special character. You will need to figure out who the werewolves are and vote out at least one of them in order to win... unless you are on the werewolf team!</p>
-		  <hr class="my-4 bg-white">
-		  <a class="btn btn-light btn-lg" href="/players">Go to game</a>
+	<div class="jumbotron bg-transparent" style="z-index:1; position:relative; padding-top: 15vh;">	
+		  <h1 class="display-4 text-light">One night ultimate werewolf</h1>
+		  <hr class="my-2">
+		  <p class="lead text-light">This is a simple game designed for 4 players. You will be randomly assigned the role of a villager, a werewolf or a special character. You will need to figure out who the werewolves are and vote out at least one of them in order to win... unless you are on the werewolf team!</p>
+		  <hr class="my-5">
+		  <a class="btn btn-outline-light btn-lg mx-auto" href="/players">Go to game</a>
 	</div>
+
+	
+	<div style="z-index:0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1536746803623-cef87080bfc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2432&q=80'); background-size: cover; background-position: 50% 50%;"></div>
+	
+
 
 		
 <%- include("./partials/footer") %>
