@@ -1,11 +1,19 @@
 <%- include("./partials/header") %>
 
+<% if(msg == "add"){ %>
+	<div class="alert alert-success">Add new player to the game</div>
+<% } else if(msg == "remove"){ %>
+	<div class="alert alert-danger">You have more than 4 players in the game. Remove all players to continue</div>
+<% } else if(msg == "initialise"){ %>
+	<div class="alert alert-success">Initialise game to continue</div>
+<% } %>
+
 <div class="jumbotron">
 	<h1 class="display-4">Players in this game</h1>
 	<p class="lead">Wait for your friends to join the game. You will need exactly 4 players to proceed.</p>
 	<hr class="my-4">
-	<p>For the most fun, jump onto a video call with your friends so you can see each other's expression and discuss! </p>
-	<p>Start game when everyone is ready and the moderator has initialised the game. </p>
+	<p>For the most fun, jump onto a video call with your friends so you can see each other's expression and discuss!</p>
+	<p>Start the game when everyone is ready and game is initialised. </p>
 	<a class="btn btn-primary btn-lg" href="/day1">Start game</a>
 </div>
 

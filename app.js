@@ -49,7 +49,17 @@ app.get("/players", function(req, res){
 		if(err){
 			console.log(err);
 		} else{
-			res.render("players", {players:allPlayers});
+			var msg = null;
+			var maxVote = 0;
+			maxVote = Math.max.apply(Math, allPlayers.map(function(o) { return o.votes; }));
+			if (allPlayers.length < 4){
+				msg = "add"
+			} else if(allPlayers.length > 4 ){
+				msg = "remove"
+			} else if(allPlayers[0].role1 == null || maxVote != 0){
+				msg = "initialise"
+			};
+			res.render("players", {players:allPlayers, msg:msg});
 		}
 	});
 });
@@ -81,6 +91,8 @@ app.get("/day1", function(req, res){
 	Player.find({}, function(err, allPlayers){
 		if(err){
 			console.log(err);
+		} else if (allPlayers.length != 4){
+			res.redirect("/players");
 		} else{
 			res.render("day1", {players:allPlayers});
 		}
